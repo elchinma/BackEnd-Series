@@ -1,0 +1,25 @@
+﻿@using Book.Models;
+@using Book.ViewModels;
+@model HomeVM
+
+<ul style="text-align:center">
+    @foreach (var item in Model.Categories)
+    {
+        <li style="list-style:none;">
+            <strong style="font-size: 30px;color: white">@item.Name</strong>
+        </li>
+    }
+</ul>
+
+<div class="container">
+<ul class="menu">
+    @foreach (var item in Model.Series)
+    {
+
+            <li style=" list-style:none; color:@(item.Imdb>=9 ? "white" : "red;")">
+            <img height="150" width="150" src="@item.CoverPhoto"><br>
+                <strong>@item.Id @item.Name <br> IMDB: @item.Imdb</strong> 
+        </li>
+    }
+</ul>
+</div>
